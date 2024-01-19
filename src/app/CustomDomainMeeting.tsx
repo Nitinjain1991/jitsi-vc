@@ -1,19 +1,45 @@
-// Import React and necessary types
-'use client'
-import React, { FC } from 'react';
-import { JitsiMeeting } from '@jitsi/react-sdk';
 
-// Define types for the component props
+"use client";
+import React, { FC, useEffect } from "react";
+import { JitsiMeeting } from "@jitsi/react-sdk";
+
+const generateNewRoomName = () => {
+
+  const randomString = Math.random().toString(33).substring(4);
+  return `newRoomName-${randomString}`;
+};
+
 type CustomDomainMeetingProps = {
   roomName: string;
   username?: string;
 };
 
-const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({ roomName, username }) => {
+const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
+  roomName,
+  username,
+}) => {
+
+  useEffect(() => {
+    // console.log("Setting up the timer for redirection.");
+
+    const timer = setTimeout(() => {
+      const newRoomName = generateNewRoomName();
+      console.log("Timer expired. Generating new room name:", newRoomName);
+      const redirectionPath = `/new-meeting/${newRoomName}`;
+      console.log("Redirecting to:", redirectionPath);
+      window.location.href = redirectionPath;
+    }, 10000);
+
+    return () => {
+      clearTimeout(timer);
+      console.log("Timer cleared.");
+    };
+  }, []);
+
   return (
     <JitsiMeeting
       domain="meet.jit.si"
-      roomName={roomName} // Use the roomName from props
+      roomName={roomName}
       configOverwrite={{
         startWithAudioMuted: true,
         disableModeratorIndicator: true,
@@ -24,15 +50,15 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({ roomName, username 
         DISABLE_JOIN_LEAVE_NOTIFICATIONS: true,
       }}
       userInfo={{
-        displayName: username || 'DefaultUsername',
-        email: '', // Provide a default value or an empty string for email
+        displayName: username || "DefaultUsername",
+        email: "",
       }}
-      onApiReady={(externalApi) => {
-        // Attach custom event listeners or store the API locally
-      }}
+      // onApiReady={(externalApi) => {
+      
+      // }}
       getIFrameRef={(iframeRef) => {
         if (iframeRef) {
-          iframeRef.style.height = '600px';
+          iframeRef.style.height = "600px";
         }
       }}
     />
