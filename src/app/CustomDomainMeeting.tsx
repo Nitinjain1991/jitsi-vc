@@ -28,7 +28,7 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
       const redirectionPath = `/new-meeting/${newRoomName}`;
       console.log("Redirecting to:", redirectionPath);
       window.location.href = redirectionPath;
-    }, 10000);
+    }, 240000);
 
     return () => {
       clearTimeout(timer);
