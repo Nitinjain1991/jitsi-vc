@@ -41,7 +41,7 @@ const HomePage = () => {
           </label>
           <br />
           <br />
-          <button onClick={handleJoinClick}>Join</button>
+          <button onClick={handleJoinClick}>Join </button>
         </div>
       )}
     </div>
