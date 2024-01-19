@@ -32,7 +32,7 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({ roomName, username 
       }}
       getIFrameRef={(iframeRef) => {
         if (iframeRef) {
-          iframeRef.style.height = '600px'; // Adjust the height based on your layout
+          iframeRef.style.height = '600px';
         }
       }}
     />
