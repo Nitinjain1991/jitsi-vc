@@ -41,7 +41,8 @@ const HomePage = () => {
       {roomName ? (
         <CustomDomainMeeting roomName={roomName} />
       ) : (
-        <div style={{ margin: "20px 48px" }}>
+        <div style={{ margin: "0px 48px",minHeight: "100vh",
+        background: "black", }}>
           <button onClick={handleNewMeetingClick} style={{ ...btns}}>
             New Meeting
           </button>
