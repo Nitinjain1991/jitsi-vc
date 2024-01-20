@@ -51,7 +51,7 @@ const HomePage = () => {
             ) : (
               <div
                 style={{
-                  margin: "20px 48px",
+                  margin: "0px 48px",
                   minHeight: "100vh",
                   background: "black",
                 }}
