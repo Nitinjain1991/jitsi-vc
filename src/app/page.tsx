@@ -68,7 +68,7 @@ const HomePage = () => {
                 background: "transparent",
                 border: "2px solid white",
                 marginBottom: "12px",
-                padding: "12px",
+                padding: "12px", 
               }}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setInputRoomName(e.target.value)
@@ -78,8 +78,7 @@ const HomePage = () => {
               onClick={handleJoinClick}
               style={{ ...btns, margin: "0px" }}
             >
-              {" "}
-              Join{" "}
+              Join
             </button>
           </form>
         </div>
