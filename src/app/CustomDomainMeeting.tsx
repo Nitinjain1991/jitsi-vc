@@ -1,40 +1,33 @@
-
 "use client";
 import React, { FC, useEffect } from "react";
 import { JitsiMeeting } from "@jitsi/react-sdk";
+import { useNavigate, useParams } from "react-router-dom";
 
 const generateNewRoomName = () => {
-
   const randomString = Math.random().toString(33).substring(4);
   return `newRoomName-${randomString}`;
 };
 
 type CustomDomainMeetingProps = {
-  roomName: string;
   username?: string;
 };
 
-const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
-  roomName,
-  username,
-}) => {
+const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({ username }) => {
+  const navigate = useNavigate();
+  const { roomName } = useParams<{ roomName: string }>();
 
   useEffect(() => {
-    // console.log("Setting up the timer for redirection.");
-
     const timer = setTimeout(() => {
       const newRoomName = generateNewRoomName();
       console.log("Timer expired. Generating new room name:", newRoomName);
-      const redirectionPath = `/new-meeting/${newRoomName}`;
-      console.log("Redirecting to:", redirectionPath);
-      window.location.href = redirectionPath;
+      navigate(`/new-meeting/${newRoomName}`);
     }, 240000);
 
     return () => {
       clearTimeout(timer);
       console.log("Timer cleared.");
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <JitsiMeeting
@@ -53,9 +46,6 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
         displayName: username || "DefaultUsername",
         email: "",
       }}
-      // onApiReady={(externalApi) => {
-      
-      // }}
       getIFrameRef={(iframeRef) => {
         if (iframeRef) {
           iframeRef.style.height = "600px";
