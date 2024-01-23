@@ -3,16 +3,6 @@
 @tailwind utilities;
 
 
-/* @font-face {
-  font-family: "Inter Tight";
-  src: url(/public/fonts/InterTight-Light.ttf);
-  src: url(/public/fonts/InterTight-Regular.ttf);
-  src: url(/public/fonts/InterTight-Medium.ttf);
-  src: url(/public/fonts/InterTight-SemiBold.ttf);
-  src: url(/public/fonts/InterTight-Bold.ttf);
-  src: url(/public/fonts/InterTight-Black.ttf);
-  src: url(/public/fonts/InterTight-ExtraBold.ttf);
-} */
 .css-1tdbzcr-contentContainer {
   background: blue !important;
 }
