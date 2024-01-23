@@ -2,26 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+/* @font-face {
+  font-family: "Inter Tight";
+  src: url(/public/fonts/InterTight-Light.ttf);
+  src: url(/public/fonts/InterTight-Regular.ttf);
+  src: url(/public/fonts/InterTight-Medium.ttf);
+  src: url(/public/fonts/InterTight-SemiBold.ttf);
+  src: url(/public/fonts/InterTight-Bold.ttf);
+  src: url(/public/fonts/InterTight-Black.ttf);
+  src: url(/public/fonts/InterTight-ExtraBold.ttf);
+} */
