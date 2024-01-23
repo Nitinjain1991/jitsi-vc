@@ -1,13 +1,42 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Inter_Tight } from "next/font/google";
+import CustomDomainMeeting from "./CustomDomainMeeting";
+
 
 const InterTight = Inter_Tight({ subsets: ["latin"] });
 const JoinRoom = () => {
+  const [roomName, setRoomName] = useState<string | null>(null);
+  const [inputRoomName, setInputRoomName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+
+  const handleNewMeetingClick = () => {
+    const randomNumber = Math.floor(100000 + Math.random() * 900000);
+    const startRandomAlphabets =
+      String.fromCharCode(65 + Math.floor(Math.random() * 26)) +
+      String.fromCharCode(65 + Math.floor(Math.random() * 26));
+    const lastRandomAlphabet = String.fromCharCode(
+      65 + Math.floor(Math.random() * 26)
+    );
+    const codeWithAlphabets =
+      startRandomAlphabets +
+      randomNumber.toString().slice(0, 7) +
+      lastRandomAlphabet;
+
+    setRoomName(codeWithAlphabets);
+  };
+
+  const handleJoinClick = () => {
+    setRoomName(inputRoomName);
+  };
+
   return (
     <>
       <section className="bg-white">
+      {roomName ? (
+        <CustomDomainMeeting roomName={roomName} username={username} />
+      ) : (
         <div className="max-w-[1080px] mx-auto min-h-screen py-6 flex flex-col px-3">
           <Link href="/">
             <svg
@@ -69,15 +98,24 @@ const JoinRoom = () => {
             <form action="">
               <input
                 type="text"
+                value={username}
                 placeholder="Wie möchten Sie sich nennen?"
                 className={`${InterTight.className} text-bitLessGray font-normal text-base leading-6 capitalize border border-bitGray p-4 rounded w-full  placeholder:${InterTight.className} placeholder:text-bitLessGray placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:capitalize `}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setUsername(e.target.value)
+                }
               />
               <input
                 type="text"
+                value={inputRoomName}
                 placeholder="Wie lautet Ihr Zugangscode?"
                 className={`${InterTight.className} text-bitLessGray font-normal text-base leading-6 capitalize border border-bitGray p-4 rounded w-full mt-4 placeholder:${InterTight.className} placeholder:text-bitLessGray placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:capitalize `}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setInputRoomName(e.target.value)
+                }
               />
               <button
+                onClick={handleJoinClick}
                 type="submit"
                 className="${InterTight.className} text-bitLessBlack font-medium text-base leading-[26px] rounded hover:bg-[#eeeeee9d] duration-300 bg-[#EEE] p-4 w-full mt-4"
               >
@@ -92,12 +130,13 @@ const JoinRoom = () => {
                 oder
               </h4>
 
-              <button className="${InterTight.className} text-bitLessBlack font-medium text-base leading-[26px] rounded hover:bg-[#eeeeee9d] duration-300 bg-[#EEE] p-4 w-full capitalize">
+              <button onClick={handleNewMeetingClick} className="${InterTight.className} text-bitLessBlack font-medium text-base leading-[26px] rounded hover:bg-[#eeeeee9d] duration-300 bg-[#EEE] p-4 w-full capitalize">
                 ein neues Meeting starten
               </button>
             </div>
           </div>
         </div>
+      )}  
       </section>
     </>
   );
