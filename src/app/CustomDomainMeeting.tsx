@@ -1,4 +1,3 @@
-
 "use client";
 import React, { FC, useEffect } from "react";
 import { JitsiMeeting } from "@jitsi/react-sdk";
@@ -18,24 +17,6 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
   roomName,
   username,
 }) => {
-
-  useEffect(() => {
-    // console.log("Setting up the timer for redirection.");
-
-    const timer = setTimeout(() => {
-      const newRoomName = generateNewRoomName();
-      console.log("Timer expired. Generating new room name:", newRoomName);
-      const redirectionPath = `/new-meeting/${newRoomName}`;
-      console.log("Redirecting to:", redirectionPath);
-      window.location.href = redirectionPath;
-    }, 240000);
-
-    return () => {
-      clearTimeout(timer);
-      console.log("Timer cleared.");
-    };
-  }, []);
-
   return (
     <JitsiMeeting
       domain="meet.jit.si"
@@ -54,7 +35,8 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
         email: "",
       }}
       // onApiReady={(externalApi) => {
-      
+      //   // Display an alert with username and roomName
+      //   alert(`Welcome ${username || "DefaultUsername"} to room ${roomName}`);
       // }}
       getIFrameRef={(iframeRef) => {
         if (iframeRef) {
@@ -64,5 +46,6 @@ const CustomDomainMeeting: FC<CustomDomainMeetingProps> = ({
     />
   );
 };
+
 
 export default CustomDomainMeeting;
