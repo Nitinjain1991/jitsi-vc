@@ -8,8 +8,8 @@ const HomePage = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<JoinRoom />} />
-        <Route path="" element={<ControlSetups />} />
+        {/* <Route path="/" element={<JoinRoom />} /> */}
+        <Route path="/" element={<ControlSetups />} />
       </Routes>
     </Router>
   );

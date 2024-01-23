@@ -13,3 +13,6 @@
   src: url(/public/fonts/InterTight-Black.ttf);
   src: url(/public/fonts/InterTight-ExtraBold.ttf);
 } */
+.css-1tdbzcr-contentContainer {
+  background: blue !important;
+}

@@ -16,8 +16,10 @@ const config: Config = {
       textColor: {
         bitLessBlack: "#0E0E0E",
         bitLessGray: "#707070",
+        darkGray: "#3C3C3C",
       },
       fontSize: {
+        controlTitle:"28px",
         meetLink: "30px",
         meettitle: "32px",
       },
@@ -25,7 +27,11 @@ const config: Config = {
         intertight: "Inter Tight",
       },
       borderColor: {
-        bitGray: "D6D8DC",
+        bitGray: "#D6D8DC",
+        lightGray: "#D9D9D9",
+      },
+      backgroundColor: {
+        darkGray: "#3C3C3C",
       },
     },
   },

@@ -1,9 +1,7 @@
-
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import { Inter_Tight } from "next/font/google";
-import router from "next/router";
 
 const InterTight = Inter_Tight({ subsets: ["latin"] });
 const JoinRoom = () => {
@@ -94,16 +92,11 @@ const JoinRoom = () => {
                 oder
               </h4>
 
-              <button
-                className="${InterTight.className} text-bitLessBlack font-medium text-base leading-[26px] rounded hover:bg-[#eeeeee9d] duration-300 bg-[#EEE] p-4 w-full capitalize"
-              >
+              <button className="${InterTight.className} text-bitLessBlack font-medium text-base leading-[26px] rounded hover:bg-[#eeeeee9d] duration-300 bg-[#EEE] p-4 w-full capitalize">
                 ein neues Meeting starten
               </button>
             </div>
           </div>
-
-          {/* <Link href="/ControlSetups" onClick={() => router.push('/dashboard')}>Control Setups</Link> */}
-          <a href="#" onClick={() => router.push('/ControlSetups')}>click me</a>
         </div>
       </section>
     </>

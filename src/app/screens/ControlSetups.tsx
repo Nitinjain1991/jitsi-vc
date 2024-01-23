@@ -8,7 +8,23 @@ const ControlSetups = () => {
       <section className="bg-white">
         <div className="min-h-screen p-3">
           <div className="grid grid-cols-4">
-            <div className=" col-span-3"></div>
+            <div className="col-span-3">
+              <div className="bg-darkGray h-full w-full rounded"></div>
+            </div>
+
+            <div className="col-span-1 p-3">
+              <h1
+                className={`${InterTight.className} font-bold text-xl md:text-controlTitle text-darkGray leading-[38px]`}
+              >
+                Einstellungen
+              </h1>
+              <h2
+                className={`${InterTight.className} font-semibold text-xs md:text-base text-darkGray mt-6`}
+              >
+                Test Ihrer Kamera
+              </h2>
+              <div className="bg-darkGray h-full w-full my-4 rounded border border-lightGray h-[171px]"></div>
+            </div>
           </div>
 
           <div>
