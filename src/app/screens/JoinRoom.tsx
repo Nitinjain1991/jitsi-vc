@@ -96,7 +96,7 @@ const JoinRoom = () => {
             </h2>
 
             <form action="">
-              <input
+              <input required 
                 type="text"
                 value={username}
                 placeholder="Wie möchten Sie sich nennen?"
@@ -105,7 +105,7 @@ const JoinRoom = () => {
                   setUsername(e.target.value)
                 }
               />
-              <input
+              <input required 
                 type="text"
                 value={inputRoomName}
                 placeholder="Wie lautet Ihr Zugangscode?"
