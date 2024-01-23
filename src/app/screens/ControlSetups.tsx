@@ -23,7 +23,7 @@ const ControlSetups = () => {
               >
                 Test Ihrer Kamera
               </h2>
-              <div className="bg-darkGray h-full w-full my-4 rounded border border-lightGray h-[171px]"></div>
+              <div className="bg-darkGray w-full my-4 rounded border border-lightGray h-[171px]"></div>
             </div>
           </div>
 
